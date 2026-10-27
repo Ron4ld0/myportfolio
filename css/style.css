@@ -3,8 +3,6 @@
    Design System: Dark Tech & Neon Green Glow
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-
 /* --- CSS Variables --- */
 :root {
   --bg-dark: #080c14;
@@ -1406,7 +1404,10 @@ section {
   }
   .hero-title {
     font-size: 1.85rem;
-    line-height: 1.2;
+    line-height: 1.25;
+  }
+  .hero-title br {
+    display: none;
   }
   .hero-subtitle {
     font-size: 0.95rem;

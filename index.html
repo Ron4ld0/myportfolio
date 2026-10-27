@@ -7,30 +7,45 @@
   <meta name="description" content="Portfólio de Ronaldo Melo - Desenvolvedor de Software especializado em integrações de sistemas, APIs em Python e Java, automações e Inteligência Artificial.">
   <meta name="keywords" content="Desenvolvedor de Software, Python, Java, Spring Boot, FastAPI, Integrações, Automação, IA, n8n, Maceió, Alagoas">
   <meta name="author" content="Ronaldo de Melo Sabino Filho">
+  <link rel="canonical" href="https://ronaldo.dev">
   
-  <!-- Open Graph / Facebook / LinkedIn -->
+  <!-- Preconnect para otimização de rede e eliminação de render-blocking -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts carregado de forma assíncrona com preload (elimina render-blocking) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"></noscript>
+
+  <!-- Preload da imagem LCP do Hero para carregamento instantâneo -->
+  <link rel="preload" as="image" href="imgs/profile.webp" type="image/webp" fetchpriority="high">
+
+  <!-- Main Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- FontAwesome carregado de forma diferida (não bloqueia renderização inicial) -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  
+  <!-- Open Graph / Facebook / LinkedIn (URL absoluta com domínio final configurável) -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ronaldo.dev">
+  <meta property="og:url" content="https://ronaldo.dev/">
   <meta property="og:title" content="Ronaldo Melo | Desenvolvedor de Software | Integrações, Automações & IA">
   <meta property="og:description" content="Construo APIs, integrações entre sistemas e automações em Python e Java, e aplico IA para transformar necessidades de negócio em produtos funcionais.">
-  <meta property="og:image" content="assets/og-image.png">
+  <meta property="og:image" content="https://ronaldo.dev/assets/og-image.png">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="RONALDO.DEV">
 
-  <!-- Twitter Card -->
+  <!-- Twitter Card (URL absoluta) -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://ronaldo.dev/">
   <meta name="twitter:title" content="Ronaldo Melo | Desenvolvedor de Software">
   <meta name="twitter:description" content="Construo APIs, integrações entre sistemas e automações em Python e Java, e aplico IA para transformar necessidades de negócio em produtos funcionais.">
-  <meta name="twitter:image" content="assets/og-image.png">
+  <meta name="twitter:image" content="https://ronaldo.dev/assets/og-image.png">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <!-- Main Custom CSS -->
-  <link rel="stylesheet" href="css/style.css">
 
   <!-- Schema.org JSON-LD (Person) -->
   <script type="application/ld+json">
@@ -76,7 +91,7 @@
   <!-- Header / Navigation -->
   <header class="header">
     <div class="container header-container">
-      <a href="#home" class="brand-logo" aria-label="Ir para o início do portfólio de Ronaldo Melo">
+      <a href="#home" class="brand-logo" aria-label="RONALDO.DEV - Início">
         <svg viewBox="0 0 100 100" width="32" height="32" aria-hidden="true">
           <rect width="100" height="100" rx="20" fill="#080c14"/>
           <path d="M25 70V30h22c7 0 13 4 13 11s-6 11-13 11H25" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -146,9 +161,6 @@
           <div class="hero-ctas">
             <a href="#projetos" class="btn btn-primary">
               <i class="fa-solid fa-rocket"></i> Conhecer Projetos
-            </a>
-            <a href="assets/curriculo-ronaldo-melo.pdf" download class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-file-arrow-down"></i> Baixar Currículo
             </a>
             <a href="#contato" class="btn btn-outline">
               <i class="fa-solid fa-comments"></i> Entrar em Contato
@@ -669,11 +681,8 @@
               <span class="period-badge">Out/2026 – Atual</span>
             </div>
             <ul class="timeline-list">
-              <li>PD&I em parceria com o Centro de Inovação Edge, transformando protótipos de software e IA em produtos internos e comerciais;</li>
-              <li>API REST de uma plataforma de recrutamento com IA em Java 21 e Spring Boot 3.4 (vagas e candidatos);</li>
-              <li>modelagem de domínio: vagas, candidaturas, formulários, habilidades ponderadas, triagem por IA e controle de acesso;</li>
-              <li>validações, tratamento centralizado de exceções, OpenAPI/Swagger e testes com JUnit 5 e MockMvc;</li>
-              <li>persistência com Spring Data JPA, Hibernate e PostgreSQL, Docker Compose e H2 nos testes.</li>
+              <li>PD&I em software e IA, transformando protótipos em produtos;</li>
+              <li>API REST de plataforma de recrutamento com IA (Java, Spring Boot).</li>
             </ul>
           </div>
         </div>
@@ -690,11 +699,9 @@
               <span class="period-badge">Nov/2025 – Mai/2026</span>
             </div>
             <ul class="timeline-list">
-              <li>sustentação e evolução de fluxos no Orquestra BPMS (JavaScript, HTML, SQL Server, REST/SOAP);</li>
-              <li>projeto autônomo da arquitetura de integração entre Solução 360, Orquestra, Dynamics e Interact;</li>
-              <li>contratos de API, documentação técnica e UML;</li>
-              <li>integração SSO/OAuth do SESI/SENAI com o Interact Suite SA;</li>
-              <li>backlog no Azure DevOps.</li>
+              <li>Sustentação e evolução de processos no Orquestra BPMS;</li>
+              <li>Arquitetura de integrações com REST/SOAP e SSO/OAuth;</li>
+              <li>Requisitos e documentação técnica (UML, Azure DevOps).</li>
             </ul>
           </div>
         </div>
@@ -706,16 +713,14 @@
             <div class="timeline-header">
               <div>
                 <h3 class="role-title">Analista de Implantação e Integração de Sistemas</h3>
-                <span class="company-name">ZUQ Performance (Prêmio Finep 2025 - Nordeste)</span>
+                <span class="company-name">ZUQ Performance (Prêmio Finep 2025 – Nordeste)</span>
               </div>
               <span class="period-badge">Ago/2023 – Nov/2025</span>
             </div>
             <ul class="timeline-list">
-              <li>automação em Python (pandas, requests, openpyxl, Tkinter) que processa +15 mil geolocalizações por ciclo com Google Geocoding + fallback Nominatim, reduzindo o tempo de horas para minutos;</li>
-              <li>integração do TMS com ERPs sem documentação (Winthor, Protheus, Sankhya, Softcom) via agentes integradores, views (SQL Server, Oracle PL/SQL, PostgreSQL) e APIs REST;</li>
-              <li>engenharia reversa para destravar falha crítica de integração no Sankhya;</li>
-              <li>dashboards com Streamlit e GraphQL para a diretoria;</li>
-              <li>onboarding técnico e apoio pré-venda ao time comercial.</li>
+              <li>Integração de SaaS com ERPs (Winthor, Protheus, Sankhya, Softcom);</li>
+              <li>Automação em Python que processa +15 mil geolocalizações;</li>
+              <li>Dashboards e diagnóstico de incidentes (Streamlit, GraphQL, SQL).</li>
             </ul>
           </div>
         </div>
@@ -726,13 +731,13 @@
           <div class="timeline-content">
             <div class="timeline-header">
               <div>
-                <h3 class="role-title">Assistente de Processamento de Dados (CPD)</h3>
+                <h3 class="role-title">Assistente de Processamento de Dados</h3>
                 <span class="company-name">Grupo Duellen</span>
               </div>
               <span class="period-badge">Jul/2021 – Abr/2023</span>
             </div>
             <ul class="timeline-list">
-              <li>suporte e expansão do ERP Winthor, parametrização, cadastros e rotinas fiscais, suporte a PDVs.</li>
+              <li>Suporte e expansão do ERP Winthor.</li>
             </ul>
           </div>
         </div>
@@ -850,8 +855,8 @@
             <i class="fa-brands fa-whatsapp"></i> Conversar no WhatsApp
           </a>
 
-          <!-- Download CV Button -->
-          <a href="assets/curriculo-ronaldo-melo.pdf" download class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+          <!-- Download CV Button (Controlado dinamicamente pela flag SHOW_CV_BUTTON no JS) -->
+          <a id="cv-download-btn" href="assets/curriculo-ronaldo-melo.pdf" download class="btn btn-outline" target="_blank" rel="noopener noreferrer" style="display: none;">
             <i class="fa-solid fa-file-arrow-down"></i> Baixar Currículo
           </a>
 
@@ -889,6 +894,6 @@
   </div>
 
   <!-- Main JavaScript File -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

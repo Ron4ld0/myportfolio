@@ -1,7 +1,12 @@
 /* ==========================================================================
-   PORTFÓLIO INTERATIVO - RONALDO DE MELO SABINO FILHO
-   Lógica JavaScript & Interatividade Modernas
+   CONFIGURAÇÕES GERAIS DO PORTFÓLIO
    ========================================================================== */
+// Domínio canônico para SEO e compartilhamento. Substitua quando registrar o domínio oficial:
+const SITE_DOMAIN = "https://ronaldo.dev"; // [COLOQUE AQUI O DOMÍNIO]
+
+// Visibilidade do botão de Baixar Currículo na seção de Contato:
+// Mantenha false até adicionar seu PDF oficial em: assets/curriculo-ronaldo-melo.pdf
+const SHOW_CV_BUTTON = false;
 
 document.addEventListener('DOMContentLoaded', () => {
   initHeaderScroll();
@@ -9,10 +14,18 @@ document.addEventListener('DOMContentLoaded', () => {
   initSkillFilters();
   initProjectFilters();
   initProjectActionButtons();
+  initCvButton();
   initProjectModals();
   initCopyEmail();
   initScrollAnimations();
 });
+
+/* --- CV Button Visibility Toggle --- */
+function initCvButton() {
+  const cvBtn = document.getElementById('cv-download-btn');
+  if (!cvBtn) return;
+  cvBtn.style.display = SHOW_CV_BUTTON ? 'inline-flex' : 'none';
+}
 
 /* --- Header Scroll Effect --- */
 function initHeaderScroll() {
