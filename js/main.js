@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initSkillFilters();
   initProjectFilters();
+  initProjectActionButtons();
   initProjectModals();
   initCopyEmail();
   initScrollAnimations();
@@ -90,13 +91,86 @@ function initProjectFilters() {
       const filter = btn.dataset.filter;
 
       projectCards.forEach(card => {
-        if (filter === 'all' || card.dataset.category === filter) {
+        const categories = (card.dataset.category || '').split(' ');
+        if (filter === 'all' || categories.includes(filter)) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
         }
       });
     });
+  });
+}
+
+/* ==========================================================================
+   CONFIGURAÇÃO CENTRAL DE LINKS DOS PROJETOS (GITHUB & DEMO)
+   Preencha os links abaixo. Quando o link for vazio ('') ou null,
+   o botão correspondente NÃO será renderizado na interface nem no modal.
+   ========================================================================== */
+const PROJECT_LINKS = {
+  voicematch: {
+    github: '', // Preencha com o link do GitHub, ex: 'https://github.com/Ron4ld0/voicematch-ai'
+    demo: ''    // Preencha com o link de demonstração
+  },
+  economiza: {
+    github: '',
+    demo: ''
+  },
+  clinica: {
+    github: '',
+    demo: ''
+  },
+  nexios: {
+    github: '',
+    demo: ''
+  },
+  zuq: {
+    github: '',
+    demo: ''
+  },
+  n8n: {
+    github: '',
+    demo: ''
+  },
+  sites: {
+    github: '',
+    demo: ''
+  }
+};
+
+/* --- Render Project Action Buttons (Only when link exists) --- */
+function initProjectActionButtons() {
+  document.querySelectorAll('.project-card').forEach(card => {
+    const projectId = card.dataset.project;
+    if (!projectId || !PROJECT_LINKS[projectId]) return;
+
+    const actionsContainer = card.querySelector('.project-actions');
+    if (!actionsContainer) return;
+
+    const links = PROJECT_LINKS[projectId];
+    actionsContainer.innerHTML = '';
+
+    if (links.github && links.github.trim() !== '') {
+      const ghBtn = document.createElement('a');
+      ghBtn.href = links.github;
+      ghBtn.target = '_blank';
+      ghBtn.rel = 'noopener noreferrer';
+      ghBtn.className = 'project-action-btn';
+      ghBtn.setAttribute('aria-label', `Código no GitHub do projeto ${projectId}`);
+      ghBtn.innerHTML = '<i class="fa-brands fa-github"></i> GitHub';
+      actionsContainer.appendChild(ghBtn);
+    }
+
+    if (links.demo && links.demo.trim() !== '') {
+      const demoBtn = document.createElement('a');
+      demoBtn.href = links.demo;
+      demoBtn.target = '_blank';
+      demoBtn.rel = 'noopener noreferrer';
+      demoBtn.className = 'project-action-btn project-demo-btn';
+      demoBtn.setAttribute('aria-label', `Demonstração ao vivo do projeto ${projectId}`);
+      demoBtn.innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i> Demo';
+      actionsContainer.appendChild(demoBtn);
+    }
   });
 }
 
@@ -220,6 +294,52 @@ const PROJECTS_DATA = {
         <p>Ferramenta desenvolvida para resolver um gargalo real: unificar e tratar dados logísticos de clientes que operam sem integração direta via ERP ou API, automatizando a engenharia e o tratamento de dados (ETL).</p>
       </div>
     `
+  },
+  n8n: {
+    title: "Automações n8n",
+    subtitle: "Pipelines de integração resiliente, webhooks HMAC e OAuth2",
+    award: "AUTOMAÇÃO & DADOS",
+    techs: ["n8n", "REST APIs", "OAuth2", "HMAC-SHA256", "PostgreSQL", "UUID v7", "OpenRouter"],
+    description: `
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">A Solução:</strong>
+        <p>Desenvolvimento e publicação de fluxos avançados de automação no n8n para integração e orquestração de sistemas empresariais, sincronização de bancos de dados e consumo seguro de APIs de terceiros.</p>
+      </div>
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">Destaques de Engenharia:</strong>
+        <ul style="padding-left:20px; list-style:disc;">
+          <li>Webhooks autenticados com verificação de assinatura HMAC-SHA256 e handshake de challenge-response;</li>
+          <li>Pipelines híbridos de sincronização (tempo real + batch) com checkpoint incremental e upsert idempotente;</li>
+          <li>Rastreamento de entregas em tempo real com eventos acionados por webhook e identificadores UUID v7;</li>
+          <li>Modelagem de ETL multi-entidade com normalização de dados e persistência em PostgreSQL.</li>
+        </ul>
+      </div>
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">Resultado:</strong>
+        <p>Eliminação de rotinas manuais de carga e extração de dados, garantindo consistência transacional e integridade entre sistemas.</p>
+      </div>
+    `
+  },
+  sites: {
+    title: "Sites e Landing Pages",
+    subtitle: "Páginas institucionais de alta conversão para consultoria e imobiliária",
+    award: "WEB & SERVERLESS",
+    techs: ["HTML5", "CSS3", "JavaScript", "React", "TypeScript", "Google Apps Script", "Google Sheets", "Vercel"],
+    description: `
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">A Solução:</strong>
+        <p>Desenvolvimento de páginas e portais institucionais de alta conversão para clientes reais (como R&L Consultoria e setor imobiliário), combinando design moderno, performance e captação automatizada de leads.</p>
+      </div>
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">Destaques de Implementação:</strong>
+        <ul style="padding-left:20px; list-style:disc;">
+          <li>Interfaces limpas desenvolvidas em React/TypeScript e Vanilla HTML/CSS/JS com deploy contínuo na Vercel;</li>
+          <li>Backend <em>serverless</em> utilizando Google Apps Script para processamento assíncrono de formulários;</li>
+          <li>Armazenamento automatizado e centralizado de leads diretamente em planilhas Google Sheets sem custo fixo de infraestrutura;</li>
+          <li>Otimização para SEO, performance e total adaptação mobile.</li>
+        </ul>
+      </div>
+    `
   }
 };
 
@@ -253,6 +373,22 @@ function initProjectModals() {
 
         const techsHtml = data.techs.map(t => `<span class="tag-badge green">${t}</span>`).join(' ');
 
+        // Action links for modal (GitHub / Demo) if present
+        let modalActionsHtml = '';
+        const links = PROJECT_LINKS[projectId];
+        if (links) {
+          let btns = [];
+          if (links.github && links.github.trim() !== '') {
+            btns.push(`<a href="${links.github}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><i class="fa-brands fa-github"></i> Código no GitHub</a>`);
+          }
+          if (links.demo && links.demo.trim() !== '') {
+            btns.push(`<a href="${links.demo}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Demonstração</a>`);
+          }
+          if (btns.length > 0) {
+            modalActionsHtml = `<div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">${btns.join('')}</div>`;
+          }
+        }
+
         modalBody.innerHTML = `
           <div style="display:flex; flex-direction:column; gap:12px;">
             <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
@@ -261,6 +397,7 @@ function initProjectModals() {
             <h2 style="font-size:1.6rem; color:var(--text-white); margin-top:4px;">${data.title}</h2>
             <p style="font-size:0.95rem; color:var(--color-neon-bright); font-weight:600;">${data.subtitle}</p>
             ${newsBadgeHtml}
+            ${modalActionsHtml}
           </div>
 
           <hr style="border:none; border-top:1px solid var(--border-subtle); margin:16px 0;" />

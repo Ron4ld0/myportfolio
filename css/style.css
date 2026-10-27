@@ -864,12 +864,74 @@ section {
   gap: 8px;
 }
 
+/* Project Card Highlights & Action Buttons */
+.project-highlight {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 2px solid var(--color-neon-bright);
+  padding: 8px 12px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.project-highlight i {
+  color: var(--color-neon-bright);
+  margin-top: 3px;
+  font-size: 0.85rem;
+}
+
+.project-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.project-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+.project-action-btn:hover {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: var(--color-neon-green);
+  color: var(--color-neon-bright);
+  transform: translateY(-2px);
+}
+
+.project-demo-btn {
+  border-color: rgba(34, 197, 94, 0.4);
+  color: var(--color-neon-bright);
+}
+
 .project-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-top: 16px;
   border-top: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.project-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .view-details-btn {
@@ -889,6 +951,29 @@ section {
 .view-details-btn:hover {
   gap: 10px;
   text-shadow: 0 0 8px var(--color-neon-glow);
+}
+
+/* Education Box Styling */
+.edu-summary-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+}
+
+.edu-highlight-badge {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  color: #fcd34d;
+  line-height: 1.5;
 }
 
 /* --- Section 5: Experience / Trajetória --- */
