@@ -1,0 +1,239 @@
+---
+
+description: "Modelo de lista de tarefas para implementação de funcionalidade"
+---
+
+# Tarefas: [NOME DA FUNCIONALIDADE]
+
+**Entrada**: Documentos de design de `/specs/[###-nome-da-funcionalidade]/`
+
+**Pré-requisitos**: plan.md (obrigatório), spec.md (obrigatório para histórias de usuário), research.md, data-model.md, contracts/
+
+**Testes**: Os exemplos abaixo incluem tarefas de teste. Testes são OPCIONAIS - inclua-os apenas se solicitado explicitamente na especificação da funcionalidade.
+
+**Organização**: As tarefas são agrupadas por história de usuário para permitir a implementação e testes independentes de cada história.
+
+## Formato: `[ID] [P?] [História] Descrição`
+
+- **[P]**: Pode executar em paralelo (arquivos diferentes, sem dependências)
+- **[História]**: A qual história de usuário esta tarefa pertence (ex: US1, US2, US3)
+- Inclua caminhos de arquivo exatos nas descrições
+
+## Convenções de Caminho
+
+- **Projeto único**: `src/`, `tests/` na raiz do repositório
+- **Aplicação web**: `backend/src/`, `frontend/src/`
+- **Mobile**: `api/src/`, `ios/src/` ou `android/src/`
+- Os caminhos exibidos abaixo assumem projeto único - ajuste com base na estrutura de plan.md
+
+<!--
+  ============================================================================
+  IMPORTANTE: As tarefas abaixo são TAREFAS DE EXEMPLO apenas para ilustração.
+
+  O comando /speckit-tasks DEVE substituir estas tarefas por tarefas reais com base em:
+  - Histórias de usuário de spec.md (com suas prioridades P1, P2, P3...)
+  - Requisitos de funcionalidade de plan.md
+  - Entidades de data-model.md
+  - Endpoints de contracts/
+
+  As tarefas DEVEM ser organizadas por história de usuário para que cada história possa ser:
+  - Implementada independentemente
+  - Testada independentemente
+  - Entregue como um incremento MVP
+
+  NÃO mantenha estas tarefas de exemplo no arquivo tasks.md gerado.
+  ============================================================================
+-->
+
+## Fase 1: Configuração (Infraestrutura Compartilhada)
+
+**Propósito**: Inicialização do projeto e estrutura básica
+
+- [ ] T001 Criar estrutura do projeto conforme plano de implementação
+- [ ] T002 Inicializar projeto [linguagem] com dependências do [framework]
+- [ ] T003 [P] Configurar ferramentas de linting e formatação
+
+---
+
+## Fase 2: Fundacional (Pré-requisitos Bloqueantes)
+
+**Propósito**: Infraestrutura central que DEVE estar concluída antes que QUALQUER história de usuário possa ser implementada
+
+**⚠️ CRÍTICO**: Nenhum trabalho de história de usuário pode começar até que esta fase esteja concluída
+
+Exemplos de tarefas fundacionais (ajuste com base no seu projeto):
+
+- [ ] T004 Configurar esquema do banco de dados e estrutura de migrações
+- [ ] T005 [P] Implementar estrutura de autenticação/autorização
+- [ ] T006 [P] Configurar roteamento de API e estrutura de middlewares
+- [ ] T007 Criar modelos/entidades base de que todas as histórias dependem
+- [ ] T008 Configurar infraestrutura de tratamento de erros e logs
+- [ ] T009 Configurar gerenciamento de configurações de ambiente
+
+**Ponto de Checagem**: Fundação pronta - a implementação das histórias de usuário agora pode começar em paralelo
+
+---
+
+## Fase 3: História de Usuário 1 - [Título] (Prioridade: P1) 🎯 MVP
+
+**Objetivo**: [Breve descrição do que esta história entrega]
+
+**Teste Independente**: [Como verificar se esta história funciona por conta própria]
+
+### Testes para História de Usuário 1 (OPCIONAL - apenas se testes forem solicitados) ⚠️
+
+> **NOTA: Escreva estes testes PRIMEIRA, garanta que ELES FALHEM antes da implementação**
+
+- [ ] T010 [P] [US1] Teste de contrato para [endpoint] em tests/contract/test_[nome].py
+- [ ] T011 [P] [US1] Teste de integração para [jornada do usuário] em tests/integration/test_[nome].py
+
+### Implementação para História de Usuário 1
+
+- [ ] T012 [P] [US1] Criar modelo [Entidade1] em src/models/[entidade1].py
+- [ ] T013 [P] [US1] Criar modelo [Entidade2] em src/models/[entidade2].py
+- [ ] T014 [US1] Implementar [Serviço] em src/services/[servico].py (depende de T012, T013)
+- [ ] T015 [US1] Implementar [endpoint/funcionalidade] em src/[local]/[arquivo].py
+- [ ] T016 [US1] Adicionar validação e tratamento de erros
+- [ ] T017 [US1] Adicionar logs para operações da história de usuário 1
+
+**Ponto de Checagem**: Nesse ponto, a História de Usuário 1 deve estar totalmente funcional e testável de forma independente
+
+---
+
+## Fase 4: História de Usuário 2 - [Título] (Prioridade: P2)
+
+**Objetivo**: [Breve descrição do que esta história entrega]
+
+**Teste Independente**: [Como verificar se esta história funciona por conta própria]
+
+### Testes para História de Usuário 2 (OPCIONAL - apenas se testes forem solicitados) ⚠️
+
+- [ ] T018 [P] [US2] Teste de contrato para [endpoint] em tests/contract/test_[nome].py
+- [ ] T019 [P] [US2] Teste de integração para [jornada do usuário] em tests/integration/test_[nome].py
+
+### Implementação para História de Usuário 2
+
+- [ ] T020 [P] [US2] Criar modelo [Entidade] em src/models/[entidade].py
+- [ ] T021 [US2] Implementar [Serviço] em src/services/[servico].py
+- [ ] T022 [US2] Implementar [endpoint/funcionalidade] em src/[local]/[arquivo].py
+- [ ] T023 [US2] Integrar com componentes da História de Usuário 1 (se necessário)
+
+**Ponto de Checagem**: Nesse ponto, as Histórias de Usuário 1 E 2 devem ambas funcionar de forma independente
+
+---
+
+## Fase 5: História de Usuário 3 - [Título] (Prioridade: P3)
+
+**Objetivo**: [Breve descrição do que esta história entrega]
+
+**Teste Independente**: [Como verificar se esta história funciona por conta própria]
+
+### Testes para História de Usuário 3 (OPCIONAL - apenas se testes forem solicitados) ⚠️
+
+- [ ] T024 [P] [US3] Teste de contrato para [endpoint] em tests/contract/test_[nome].py
+- [ ] T025 [P] [US3] Teste de integração para [jornada do usuário] em tests/integration/test_[nome].py
+
+### Implementação para História de Usuário 3
+
+- [ ] T026 [P] [US3] Criar modelo [Entidade] em src/models/[entidade].py
+- [ ] T027 [US3] Implementar [Serviço] em src/services/[servico].py
+- [ ] T028 [US3] Implementar [endpoint/funcionalidade] em src/[local]/[arquivo].py
+
+**Ponto de Checagem**: Todas as histórias de usuário devem agora estar funcionalmente independentes
+
+---
+
+[Adicione mais fases de histórias de usuário conforme necessário, seguindo o mesmo padrão]
+
+---
+
+## Fase N: Polimento & Aspectos Transversais
+
+**Propósito**: Melhorias que afetam múltiplas histórias de usuário
+
+- [ ] TXXX [P] Atualizações de documentação em docs/
+- [ ] TXXX Limpeza de código e refatoração
+- [ ] TXXX Otimização de desempenho em todas as histórias
+- [ ] TXXX [P] Testes unitários adicionais (se solicitados) em tests/unit/
+- [ ] TXXX Reforço de segurança
+- [ ] TXXX Executar validação de quickstart.md
+
+---
+
+## Dependências & Ordem de Execução
+
+### Dependências de Fases
+
+- **Configuração (Fase 1)**: Sem dependências - pode começar imediatamente
+- **Fundacional (Fase 2)**: Depende da conclusão da Configuração - BLOQUEIA todas as histórias de usuário
+- **Histórias de Usuário (Fase 3+)**: Todas dependem da conclusão da fase Fundacional
+  - Histórias de usuário podem prosseguir em paralelo (se houver equipe disponível)
+  - Ou sequencialmente por ordem de prioridade (P1 → P2 → P3)
+- **Polimento (Fase Final)**: Depende da conclusão de todas as histórias de usuário desejadas
+
+### Dependências entre Histórias de Usuário
+
+- **História de Usuário 1 (P1)**: Pode começar após Fundacional (Fase 2) - Sem dependências de outras histórias
+- **História de Usuário 2 (P2)**: Pode começar após Fundacional (Fase 2) - Pode integrar com a US1, mas deve ser testável independentemente
+- **História de Usuário 3 (P3)**: Pode começar após Fundacional (Fase 2) - Pode integrar com US1/US2, mas deve ser testável independentemente
+
+### Dentro de Cada História de Usuário
+
+- Testes (se incluídos) DEVEM ser escritos e FALHAR antes da implementação
+- Modelos antes de serviços
+- Serviços antes de endpoints
+- Implementação central antes da integração
+- História concluída antes de passar para a próxima prioridade
+
+### Oportunidades de Paralelismo
+
+- Todas as tarefas de Configuração marcadas com [P] podem ser executadas em paralelo
+- Todas as tarefas Fundacionais marcadas com [P] podem ser executadas em paralelo (dentro da Fase 2)
+- Assim que a fase Fundacional for concluída, todas as histórias de usuário podem começar em paralelo
+- Todos os testes para uma história de usuário marcados com [P] podem ser executados em paralelo
+- Modelos dentro de uma história marcados com [P] podem ser executados em paralelo
+
+---
+
+## Exemplo em Paralelo: História de Usuário 1
+
+```bash
+# Iniciar todos os testes para a História de Usuário 1 juntos (se testes forem solicitados):
+Task: "Teste de contrato para [endpoint] em tests/contract/test_[nome].py"
+Task: "Teste de integração para [jornada do usuário] em tests/integration/test_[nome].py"
+
+# Iniciar todos os modelos para a História de Usuário 1 juntos:
+Task: "Criar modelo [Entidade1] em src/models/[entidade1].py"
+Task: "Criar modelo [Entidade2] em src/models/[entidade2].py"
+```
+
+---
+
+## Estratégia de Implementação
+
+### MVP Primeiro (Apenas História de Usuário 1)
+
+1. Concluir Fase 1: Configuração
+2. Concluir Fase 2: Fundacional (CRÍTICO - bloqueia todas as histórias)
+3. Concluir Fase 3: História de Usuário 1
+4. **PARAR E VALIDAR**: Testar a História de Usuário 1 independentemente
+5. Implantar/demonstrar se estiver pronto
+
+### Entrega Incremental
+
+1. Concluir Configuração + Fundacional → Fundação pronta
+2. Adicionar História de Usuário 1 → Testar independentemente → Implantar/Demonstrar (MVP!)
+3. Adicionar História de Usuário 2 → Testar independentemente → Implantar/Demonstrar
+4. Adicionar História de Usuário 3 → Testar independentemente → Implantar/Demonstrar
+5. Cada história adiciona valor sem quebrar histórias anteriores
+
+---
+
+## Notas
+
+- Tarefas [P] = arquivos diferentes, sem dependências
+- O rótulo [História] mapeia a tarefa para a história de usuário específica para rastreabilidade
+- Cada história de usuário deve ser concluída e testada independentemente
+- Verifique se os testes falham antes de implementar
+- Faça commit após cada tarefa ou grupo lógico
+- Pare em qualquer ponto de checagem para validar a história independentemente

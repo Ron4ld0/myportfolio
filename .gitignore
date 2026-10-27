@@ -1,0 +1,16 @@
+# Arquivos pessoais / Confidenciais
+Curriculo Mestre.md
+Curriculo Mestre.md.bak
+*.pdf
+assets/*.pdf
+
+# Node & Relatórios temporários
+node_modules/
+lighthouse*
+.lighthouseci/
+
+# Sistema e IDEs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

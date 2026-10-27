@@ -1,0 +1,346 @@
+/* ==========================================================================
+   PORTFÓLIO INTERATIVO - RONALDO DE MELO SABINO FILHO
+   Lógica JavaScript & Interatividade Modernas
+   ========================================================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+  initHeaderScroll();
+  initMobileMenu();
+  initSkillFilters();
+  initProjectFilters();
+  initProjectModals();
+  initCopyEmail();
+  initScrollAnimations();
+});
+
+/* --- Header Scroll Effect --- */
+function initHeaderScroll() {
+  const header = document.querySelector('.header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+}
+
+/* --- Mobile Menu Toggle --- */
+function initMobileMenu() {
+  const toggleBtn = document.querySelector('.mobile-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+  
+  if (!toggleBtn || !navMenu) return;
+
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    const icon = toggleBtn.querySelector('i');
+    if (icon) {
+      if (navMenu.classList.contains('active')) {
+        icon.className = 'fa-solid fa-xmark';
+      } else {
+        icon.className = 'fa-solid fa-bars';
+      }
+    }
+  });
+
+  // Close menu on link click
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      const icon = toggleBtn.querySelector('i');
+      if (icon) icon.className = 'fa-solid fa-bars';
+    });
+  });
+}
+
+/* --- Skill Filter Tabs --- */
+function initSkillFilters() {
+  const filterBtns = document.querySelectorAll('.skills-filter .filter-btn');
+  const skillCards = document.querySelectorAll('.skill-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+
+      skillCards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}
+
+/* --- Project Filter Tabs --- */
+function initProjectFilters() {
+  const filterBtns = document.querySelectorAll('.projects-filter .filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+
+      projectCards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}
+
+const PROJECTS_DATA = {
+  voicematch: {
+    title: "VoiceMatch AI",
+    subtitle: "Plataforma de recrutamento por voz com Inteligência Artificial",
+    award: "1º LUGAR — HACKATHON MATCH TECH",
+    newsUrl: "https://www.jornaldealagoas.com.br/ciencia/2026/07/27/1047-hackathon-em-alagoas-desenvolve-solucoes-com-ia-para-conectar-talentos-ao-mercado",
+    newsTitle: "Matéria no Jornal de Alagoas",
+    techs: ["React", "TypeScript", "Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Docker", "Pytest", "JWT", "Groq LLMs"],
+    description: `
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">O Problema:</strong>
+        <p>Processos seletivos demorados, triagem de currículos ineficiente e viés humano nas entrevistas técnicas e comportamentais.</p>
+      </div>
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">A Solução:</strong>
+        <p>A Íris, uma agente de IA que conduz entrevistas por voz, analisa respostas e gera avaliações personalizadas para candidatos e um scorecard para recrutadores em tempo real.</p>
+      </div>
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">A Arquitetura & Stack:</strong>
+        <p>Aplicação Full Stack com frontend em React/TypeScript, backend em Python/FastAPI e banco PostgreSQL. Deploy containerizado com Docker. A arquitetura é multi-tenant com isolamento de dados por empresa e autenticação JWT.</p>
+      </div>
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">Minha Contribuição:</strong>
+        <ul style="padding-left:20px; list-style:disc;">
+          <li>Construção da API RESTful;</li>
+          <li>Modelagem do banco e gerência via Alembic;</li>
+          <li>Containerização (Docker);</li>
+          <li>Integração com modelos de IA e engenharia de prompts;</li>
+          <li>Implementação das regras de negócio, arquitetura multi-tenant, autenticação e autorização;</li>
+          <li>Testes automatizados.</li>
+        </ul>
+      </div>
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">Resultado:</strong>
+        <p>O projeto conquistou o 1º Lugar no Hackathon Match Tech, destacando-se pela inovação, complexidade técnica (processamento de áudio/LLM) e potencial de mercado.</p>
+      </div>
+    `
+  },
+  economiza: {
+    title: "Economiza.Ai",
+    subtitle: "Comparador de preços de supermercados com IA e geolocalização",
+    award: "FULL STACK • MOBILE • IA",
+    techs: ["React Native", "Expo", "TypeScript", "Python", "FastAPI", "PostgreSQL", "PostGIS", "Gemini API", "JWT", "Google SSO"],
+    description: `
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">O Problema:</strong>
+        <p>Dificuldade dos consumidores em comparar preços de itens de supermercado em sua região de forma rápida e atualizada.</p>
+      </div>
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">A Solução:</strong>
+        <p>Aplicativo mobile de pesquisa e comparação de preços que utiliza os dados públicos de notas fiscais da SEFAZ-AL, aliado à geolocalização do usuário (raio de 10 km) e a um assistente de Inteligência Artificial.</p>
+      </div>
+      <div style="margin-bottom:16px; padding: 16px; background: rgba(0,0,0,0.3); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); text-align: center; font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-neon-bright);">
+        React Native<br>↓<br>FastAPI<br>↓<br>PostgreSQL + PostGIS<br>↓<br>SEFAZ-AL &nbsp;&nbsp; ↘ Gemini AI
+      </div>
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">Minha Contribuição:</strong>
+        <ul style="padding-left:20px; list-style:disc;">
+          <li>Desenvolvimento mobile de ponta a ponta (React Native/Expo);</li>
+          <li>Construção do backend em FastAPI e modelagem geoespacial (PostGIS);</li>
+          <li>Integração da Gemini API com <em>Tool Calling</em>;</li>
+          <li>Autenticação via Google SSO e JWT;</li>
+          <li>Leitor de código de barras e sistema offline/cache.</li>
+        </ul>
+      </div>
+    `
+  },
+  clinica: {
+    title: "Sistema de Gestão de Clínica Médica",
+    subtitle: "Backend escalável focado em engenharia de software",
+    award: "ENGENHARIA DE SOFTWARE",
+    techs: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Docker", "Pytest", "Bcrypt"],
+    description: `
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">A Solução:</strong>
+        <p>Backend de um sistema de agendamento médico desenvolvido com foco absoluto em engenharia de software, segurança e regras de negócio, indo além de um simples CRUD.</p>
+      </div>
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">Destaques de Arquitetura:</strong>
+        <ul style="padding-left:20px; list-style:disc;">
+          <li>Arquitetura em camadas e uso do Repository Pattern;</li>
+          <li>Dependency Injection, Strategy + Factory;</li>
+          <li>Autenticação JWT, RBAC e Bcrypt;</li>
+          <li><strong>Pessimistic Locking</strong> para evitar condições de corrida em agendamentos simultâneos;</li>
+          <li><strong>100% de cobertura de testes automatizados</strong> com pipeline CI;</li>
+        </ul>
+      </div>
+    `
+  },
+  nexios: {
+    title: "Nexios Imob",
+    subtitle: "CRM Imobiliário com Inteligência Artificial preditiva",
+    award: "CENTELHA AL",
+    techs: ["React", "TypeScript", "Python", "FastAPI", "LangChain"],
+    description: `
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">A Solução:</strong>
+        <p>CRM focado no setor imobiliário com diferencial em Inteligência Artificial para realizar o matching preditivo entre leads e imóveis, calculando o score de compatibilidade e facilitando o trabalho do corretor.</p>
+      </div>
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">Minha Contribuição:</strong>
+        <p>Construção do frontend em React e backend preditivo em Python (FastAPI + LangChain). Projeto aprovado para submissão no Programa Centelha (AL).</p>
+      </div>
+    `
+  },
+  zuq: {
+    title: "Automação & Engenharia de Dados",
+    subtitle: "Geocodificador de Endereços e Unificador de Planilhas",
+    award: "+15 MIL GEOLOCALIZAÇÕES PROCESSADAS",
+    techs: ["Python", "Pandas", "Requests", "OpenPyXL", "Tkinter", "Google Geocoding API", "Nominatim"],
+    description: `
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">Geocodificador de Endereços:</strong>
+        <p>Aplicação desktop em Python para converter listas de endereços logísticos em coordenadas geográficas automaticamente, processando mais de 15 mil localizações por ciclo e reduzindo o tempo operacional de horas para minutos.</p>
+      </div>
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">Unificador de Planilhas:</strong>
+        <p>Ferramenta desenvolvida para resolver um gargalo real: unificar e tratar dados logísticos de clientes que operam sem integração direta via ERP ou API, automatizando a engenharia e o tratamento de dados (ETL).</p>
+      </div>
+    `
+  }
+};
+
+function initProjectModals() {
+  const backdrop = document.getElementById('project-modal');
+  const closeBtn = document.querySelector('.modal-close');
+  const modalBody = document.getElementById('modal-body-content');
+
+  if (!backdrop || !modalBody) return;
+
+  document.querySelectorAll('.view-details-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const projectId = btn.dataset.project;
+      const data = PROJECTS_DATA[projectId];
+
+      if (data) {
+        let newsBadgeHtml = '';
+        if (data.newsUrl) {
+          newsBadgeHtml = `
+            <a href="${data.newsUrl}" target="_blank" rel="noopener noreferrer" class="news-tag" style="margin-top:8px; display:inline-flex;">
+              <i class="fa-solid fa-newspaper"></i> ${data.newsTitle} <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.7em;"></i>
+            </a>
+          `;
+        }
+
+        let awardHtml = '';
+        if (data.award) {
+          awardHtml = `<span class="award-tag"><i class="fa-solid fa-trophy"></i> ${data.award}</span>`;
+        }
+
+        const techsHtml = data.techs.map(t => `<span class="tag-badge green">${t}</span>`).join(' ');
+
+        modalBody.innerHTML = `
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+              ${awardHtml}
+            </div>
+            <h2 style="font-size:1.6rem; color:var(--text-white); margin-top:4px;">${data.title}</h2>
+            <p style="font-size:0.95rem; color:var(--color-neon-bright); font-weight:600;">${data.subtitle}</p>
+            ${newsBadgeHtml}
+          </div>
+
+          <hr style="border:none; border-top:1px solid var(--border-subtle); margin:16px 0;" />
+
+          <div class="modal-description" style="display:flex; flex-direction:column; gap:12px; font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
+            ${data.description}
+          </div>
+
+          <div style="margin-top:20px; display:flex; flex-direction:column; gap:8px;">
+            <span style="font-size:0.78rem; color:var(--text-muted); font-weight:700; text-transform:uppercase;">Tecnologias Utilizadas:</span>
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">${techsHtml}</div>
+          </div>
+        `;
+
+        backdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  const closeModal = () => {
+    backdrop.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && backdrop.classList.contains('active')) closeModal();
+  });
+}
+
+/* --- Copy Email Quick Feature --- */
+function initCopyEmail() {
+  const copyBtn = document.getElementById('copy-email-btn');
+  if (!copyBtn) return;
+
+  copyBtn.addEventListener('click', () => {
+    const email = 'ronaldo.melo7@outlook.com';
+    navigator.clipboard.writeText(email).then(() => {
+      const originalText = copyBtn.innerHTML;
+      copyBtn.innerHTML = `<i class="fa-solid fa-check" style="color:var(--color-neon-bright)"></i> E-mail Copiado!`;
+      copyBtn.style.borderColor = 'var(--color-neon-bright)';
+      copyBtn.style.color = 'var(--color-neon-bright)';
+
+      setTimeout(() => {
+        copyBtn.innerHTML = originalText;
+        copyBtn.style.borderColor = '';
+        copyBtn.style.color = '';
+      }, 2500);
+    }).catch(err => {
+      console.error('Erro ao copiar e-mail: ', err);
+    });
+  });
+}
+
+
+/* --- Scroll Fade Animations --- */
+function initScrollAnimations() {
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.feature-card, .project-card, .timeline-content, .edu-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+    observer.observe(el);
+  });
+}
