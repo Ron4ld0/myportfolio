@@ -22,9 +22,9 @@
   --color-neon-glow: rgba(0, 255, 102, 0.25);
   
   --text-white: #ffffff;
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
   
   --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -411,9 +411,9 @@ section {
 }
 
 .stat-label {
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -599,7 +599,7 @@ section {
 
 .feature-tag {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.80rem;
   font-weight: 700;
   color: var(--text-muted);
   letter-spacing: 0.1em;
@@ -763,8 +763,9 @@ section {
 }
 
 .skill-details {
-  font-size: 0.78rem;
+  font-size: 0.84rem;
   color: var(--text-muted);
+  line-height: 1.5;
 }
 
 /* --- Section 4: Projects / Projetos --- */
@@ -1055,7 +1056,7 @@ section {
 
 .period-badge {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.80rem;
   padding: 4px 12px;
   border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.05);
@@ -1316,6 +1317,12 @@ section {
   gap: 20px;
 }
 
+/* --- Focus Visibility & Accessibility --- */
+:focus-visible {
+  outline: 2px solid var(--color-neon-bright);
+  outline-offset: 3px;
+}
+
 /* --- Responsive Media Queries --- */
 @media (max-width: 1024px) {
   .hero-grid {
@@ -1335,22 +1342,32 @@ section {
   }
   .nav-menu {
     position: fixed;
-    top: 70px;
+    top: 68px;
     left: 0;
     width: 100%;
-    background: rgba(8, 12, 20, 0.96);
-    backdrop-filter: blur(20px);
+    max-height: calc(100vh - 68px);
+    overflow-y: auto;
+    background: rgba(8, 12, 20, 0.98);
+    backdrop-filter: blur(24px);
     flex-direction: column;
-    padding: 30px;
+    padding: 30px 24px;
     gap: 20px;
-    border-bottom: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-neon);
     display: none;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
   }
   .nav-menu.active {
     display: flex;
   }
   .mobile-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
   }
   .hero-title {
     font-size: 2.3rem;
@@ -1372,5 +1389,57 @@ section {
   }
   .timeline-dot {
     left: 2px;
+  }
+}
+
+/* Small mobile devices (e.g. 360px - 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+  .hero-title {
+    font-size: 1.85rem;
+    line-height: 1.2;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .hero-ctas .btn {
+    width: 100%;
+  }
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .stat-number {
+    font-size: 1.4rem;
+  }
+  .header-actions .btn-sm {
+    display: none;
+  }
+  .contact-methods {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .contact-methods .btn,
+  .contact-methods .copy-email-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .copy-email-btn {
+    font-size: 0.82rem;
+    padding: 10px 14px;
+    word-break: break-all;
+  }
+  .project-card, .timeline-content, .edu-card, .contact-card {
+    padding: 20px 16px;
+  }
+  .modal-container {
+    padding: 24px 16px;
   }
 }
