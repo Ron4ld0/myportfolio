@@ -384,11 +384,11 @@ section {
   margin-top: 8px;
 }
 
-/* Hero Counter Stats Grid */
+/* Hero Counter Stats Grid (3 colunas) */
 .hero-stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   margin-top: 40px;
   padding-top: 32px;
   border-top: 1px solid var(--border-subtle);
@@ -397,23 +397,25 @@ section {
 .stat-item {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 .stat-number {
-  font-size: 1.6rem;
+  font-size: 1.55rem;
   font-weight: 800;
   color: var(--color-neon-bright);
   font-family: var(--font-mono);
   letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
 .stat-label {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
 }
 
 /* --- Hero Mockup / Engine Card (Matching Reference Image 1) --- */
@@ -1091,10 +1093,11 @@ section {
   font-weight: 800;
 }
 
-/* --- Section Destaques --- */
+/* --- Section Destaques (3 + 2 centralizados no desktop) --- */
 .destaques-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
   margin-bottom: 20px;
 }
@@ -1106,6 +1109,10 @@ section {
   padding: 24px;
   text-align: center;
   transition: all var(--transition-fast);
+  flex: 0 1 calc(33.333% - 16px);
+  min-width: 260px;
+  max-width: 380px;
+  box-sizing: border-box;
 }
 
 .destaque-card:hover {
@@ -1378,7 +1385,12 @@ section {
     font-size: 2.3rem;
   }
   .hero-stats {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .destaque-card {
+    flex: 0 1 calc(50% - 16px);
+    max-width: 450px;
   }
   .features-grid {
     grid-template-columns: 1fr;
@@ -1394,6 +1406,18 @@ section {
   }
   .timeline-dot {
     left: 2px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .destaque-card {
+    flex: 1 1 100%;
+    min-width: 100%;
+    max-width: 100%;
   }
 }
 
