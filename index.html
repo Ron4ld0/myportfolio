@@ -3,8 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfólio de Ronaldo de Melo Sabino Filho - Analista de Sistemas e Desenvolvedor Python Full Cycle especialista em automação, arquitetura de APIs, BPM e Inteligência Preditiva.">
-  <title>Ronaldo de Melo Sabino Filho | Analista de Sistemas & Dev Python Full Cycle</title>
+  <title>Ronaldo Melo | Desenvolvedor de Software | Integrações, Automações & IA</title>
+  <meta name="description" content="Portfólio de Ronaldo Melo - Desenvolvedor de Software especializado em integrações de sistemas, APIs em Python e Java, automações e Inteligência Artificial.">
+  <meta name="keywords" content="Desenvolvedor de Software, Python, Java, Spring Boot, FastAPI, Integrações, Automação, IA, n8n, Maceió, Alagoas">
+  <meta name="author" content="Ronaldo de Melo Sabino Filho">
+  
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ronaldo.dev">
+  <meta property="og:title" content="Ronaldo Melo | Desenvolvedor de Software | Integrações, Automações & IA">
+  <meta property="og:description" content="Construo APIs, integrações entre sistemas e automações em Python e Java, e aplico IA para transformar necessidades de negócio em produtos funcionais.">
+  <meta property="og:image" content="assets/og-image.png">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="RONALDO.DEV">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ronaldo Melo | Desenvolvedor de Software">
+  <meta name="twitter:description" content="Construo APIs, integrações entre sistemas e automações em Python e Java, e aplico IA para transformar necessidades de negócio em produtos funcionais.">
+  <meta name="twitter:image" content="assets/og-image.png">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -14,6 +31,40 @@
   
   <!-- Main Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Schema.org JSON-LD (Person) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ronaldo de Melo Sabino Filho",
+    "alternateName": "Ronaldo Melo",
+    "jobTitle": "Desenvolvedor de Software",
+    "url": "https://ronaldo.dev",
+    "image": "imgs/profile.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Maceió",
+      "addressRegion": "AL",
+      "addressCountry": "BR"
+    },
+    "sameAs": [
+      "https://github.com/Ron4ld0",
+      "https://www.linkedin.com/in/ronaldodmelo/"
+    ],
+    "knowsAbout": [
+      "Java",
+      "Spring Boot",
+      "Python",
+      "FastAPI",
+      "Integrações de Sistemas",
+      "Automação",
+      "Inteligência Artificial",
+      "PostgreSQL",
+      "Docker"
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -25,8 +76,8 @@
   <!-- Header / Navigation -->
   <header class="header">
     <div class="container header-container">
-      <a href="#home" class="brand-logo">
-        <svg viewBox="0 0 100 100" width="32" height="32">
+      <a href="#home" class="brand-logo" aria-label="Ir para o início do portfólio de Ronaldo Melo">
+        <svg viewBox="0 0 100 100" width="32" height="32" aria-hidden="true">
           <rect width="100" height="100" rx="20" fill="#080c14"/>
           <path d="M25 70V30h22c7 0 13 4 13 11s-6 11-13 11H25" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           <path d="M42 52l18 18" stroke="#22c55e" stroke-width="7" stroke-linecap="round" fill="none"/>
@@ -35,7 +86,7 @@
         <span>RONALDO<span class="dot">.DEV</span></span>
       </a>
 
-      <nav>
+      <nav aria-label="Navegação principal">
         <ul class="nav-menu">
           <li><a href="#home" class="nav-link active">Sobre</a></li>
           <li><a href="#diferenciais" class="nav-link">Diferenciais</a></li>
@@ -49,25 +100,28 @@
 
       <div class="header-actions">
         <div class="quick-social">
-          <a href="https://github.com/Ron4ld0" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub">
+          <a href="https://github.com/Ron4ld0" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub" aria-label="Perfil do GitHub de Ronaldo Melo">
             <i class="fa-brands fa-github"></i>
           </a>
-          <a href="https://www.linkedin.com/in/ronaldodmelo/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">
+          <a href="https://www.linkedin.com/in/ronaldodmelo/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn" aria-label="Perfil do LinkedIn de Ronaldo Melo">
             <i class="fa-brands fa-linkedin-in"></i>
           </a>
-          <a href="https://wa.me/5582993707473" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="WhatsApp">
+          <a href="https://wa.me/5582993707473" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="WhatsApp" aria-label="Conversar com Ronaldo Melo no WhatsApp">
             <i class="fa-brands fa-whatsapp"></i>
           </a>
         </div>
         <a href="#contato" class="btn btn-primary btn-sm">
           <i class="fa-solid fa-paper-plane"></i> Falar Comigo
         </a>
-        <button class="mobile-toggle" aria-label="Abrir Menu">
+        <button class="mobile-toggle" aria-label="Abrir ou fechar menu de navegação">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
     </div>
   </header>
+
+  <!-- Main Content Landmark -->
+  <main id="main-content">
 
   <!-- Hero Section -->
   <section id="home" class="hero-section">
@@ -124,7 +178,10 @@
 
         <!-- Right Hero Mockup Card -->
         <div class="hero-image-wrapper">
-          <img src="imgs/profile.jpg" alt="Ronaldo de Melo Sabino Filho" class="hero-profile-img" width="400" height="400" />
+          <picture>
+            <source srcset="imgs/profile.webp" type="image/webp">
+            <img src="imgs/profile.jpg" alt="Foto de perfil de Ronaldo de Melo Sabino Filho, Desenvolvedor de Software" class="hero-profile-img" width="400" height="400" fetchpriority="high" />
+          </picture>
         </div>
 
       </div>
@@ -693,22 +750,22 @@
       <div class="destaques-grid">
         <div class="destaque-card">
           <i class="fa-solid fa-trophy"></i>
-          <h4>1º Lugar — Hackathon Match Tech</h4>
+          <h3>1º Lugar — Hackathon Match Tech</h3>
           <p>VoiceMatch AI</p>
         </div>
         <div class="destaque-card">
           <i class="fa-solid fa-medal"></i>
-          <h4>Prêmio Finep de Inovação 2025</h4>
+          <h3>Prêmio Finep de Inovação 2025</h3>
           <p>Solução da ZUQ Performance vencedora da etapa Nordeste</p>
         </div>
         <div class="destaque-card">
           <i class="fa-solid fa-award"></i>
-          <h4>Top 1.000 — Santander Tech+</h4>
+          <h3>Top 1.000 — Santander Tech+</h3>
           <p>Selecionado entre mais de 60.000 participantes</p>
         </div>
         <div class="destaque-card">
           <i class="fa-solid fa-graduation-cap"></i>
-          <h4>Graduação em ADS (CR 8,97)</h4>
+          <h3>Graduação em ADS (CR 8,97)</h3>
           <p>Estácio — Bolsista PROUNI integral</p>
         </div>
       </div>
@@ -817,6 +874,7 @@
       </div>
     </footer>
   </section>
+  </main>
 
   <!-- Project Details Modal Backdrop -->
   <div id="project-modal" class="modal-backdrop" role="dialog" aria-modal="true">
