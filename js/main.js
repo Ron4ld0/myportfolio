@@ -133,10 +133,6 @@ const PROJECT_LINKS = {
     github: '',
     demo: ''
   },
-  nexios: {
-    github: '',
-    demo: ''
-  },
   zuq: {
     github: '',
     demo: ''
@@ -147,7 +143,7 @@ const PROJECT_LINKS = {
   },
   sites: {
     github: '',
-    demo: ''
+    demo: 'https://www.rlconsultoriaempresarial.com.br/'
   }
 };
 
@@ -180,8 +176,9 @@ function initProjectActionButtons() {
       demoBtn.target = '_blank';
       demoBtn.rel = 'noopener noreferrer';
       demoBtn.className = 'project-action-btn project-demo-btn';
-      demoBtn.setAttribute('aria-label', `Demonstração ao vivo do projeto ${projectId}`);
-      demoBtn.innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i> Demo';
+      const isSites = projectId === 'sites';
+      demoBtn.setAttribute('aria-label', isSites ? 'Acessar site da R&L Consultoria Empresarial' : `Demonstração ao vivo do projeto ${projectId}`);
+      demoBtn.innerHTML = `<i class="fa-solid fa-arrow-up-right-from-square"></i> ${isSites ? 'Ver Site' : 'Demo'}`;
       actionsContainer.appendChild(demoBtn);
     }
   });
@@ -275,22 +272,7 @@ const PROJECTS_DATA = {
         </ul>
       </div>
     `
-  },
-  nexios: {
-    title: "Nexios Imob",
-    subtitle: "CRM Imobiliário com Inteligência Artificial preditiva",
-    award: "CENTELHA AL",
-    techs: ["React", "TypeScript", "Python", "FastAPI", "LangChain"],
-    description: `
-      <div style="margin-bottom:16px;">
-        <strong style="color:var(--text-white);">A Solução:</strong>
-        <p>CRM focado no setor imobiliário com diferencial em Inteligência Artificial para realizar o matching preditivo entre leads e imóveis, calculando o score de compatibilidade e facilitando o trabalho do corretor.</p>
-      </div>
-      <div style="margin-bottom:16px;">
-        <strong style="color:var(--text-white);">Minha Contribuição:</strong>
-        <p>Construção do frontend em React e backend preditivo em Python (FastAPI + LangChain). Projeto aprovado para submissão no Programa Centelha (AL).</p>
-      </div>
-    `
+
   },
   zuq: {
     title: "Automação & Engenharia de Dados",
@@ -334,14 +316,14 @@ const PROJECTS_DATA = {
     `
   },
   sites: {
-    title: "Sites e Landing Pages",
-    subtitle: "Páginas institucionais de alta conversão para consultoria e imobiliária",
-    award: "WEB & SERVERLESS",
+    title: "Sites e Landing Pages (Freelance)",
+    subtitle: "Páginas institucionais de alta conversão para consultoria e setor imobiliário",
+    award: "FREELANCE • WEB & SERVERLESS",
     techs: ["HTML5", "CSS3", "JavaScript", "React", "TypeScript", "Google Apps Script", "Google Sheets", "Vercel"],
     description: `
       <div style="margin-bottom:16px;">
         <strong style="color:var(--text-white);">A Solução:</strong>
-        <p>Desenvolvimento de páginas e portais institucionais de alta conversão para clientes reais (como R&L Consultoria e setor imobiliário), combinando design moderno, performance e captação automatizada de leads.</p>
+        <p>Desenvolvimento de páginas e portais institucionais de alta conversão para clientes reais como a <a href="https://www.rlconsultoriaempresarial.com.br/" target="_blank" rel="noopener noreferrer" style="color:var(--color-neon-bright); text-decoration:underline; font-weight:600;">R&L Consultoria Empresarial</a> e setor imobiliário, combinando design moderno, performance e captação automatizada de leads.</p>
       </div>
       <div style="margin-bottom:16px;">
         <strong style="color:var(--text-white);">Destaques de Implementação:</strong>
@@ -351,6 +333,11 @@ const PROJECTS_DATA = {
           <li>Armazenamento automatizado e centralizado de leads diretamente em planilhas Google Sheets sem custo fixo de infraestrutura;</li>
           <li>Otimização para SEO, performance e total adaptação mobile.</li>
         </ul>
+      </div>
+      <div style="margin-top:16px;">
+        <a href="https://www.rlconsultoriaempresarial.com.br/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Acessar Site da R&L Consultoria
+        </a>
       </div>
     `
   }
@@ -395,7 +382,8 @@ function initProjectModals() {
             btns.push(`<a href="${links.github}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm"><i class="fa-brands fa-github"></i> Código no GitHub</a>`);
           }
           if (links.demo && links.demo.trim() !== '') {
-            btns.push(`<a href="${links.demo}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Demonstração</a>`);
+            const demoModalLabel = projectId === 'sites' ? 'Acessar R&L Consultoria' : 'Ver Demonstração';
+            btns.push(`<a href="${links.demo}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><i class="fa-solid fa-arrow-up-right-from-square"></i> ${demoModalLabel}</a>`);
           }
           if (btns.length > 0) {
             modalActionsHtml = `<div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">${btns.join('')}</div>`;
