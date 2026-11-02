@@ -807,6 +807,63 @@ section {
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(34, 197, 94, 0.2);
 }
 
+.project-thumb {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: rgba(0, 0, 0, 0.4);
+  aspect-ratio: 16 / 9;
+}
+
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-normal);
+}
+
+.project-card:hover .project-thumb img {
+  transform: scale(1.03);
+}
+
+.project-thumb-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(34, 197, 94, 0.12) 0%, rgba(8, 12, 20, 0.85) 100%);
+  padding: 8px;
+}
+
+.project-thumb-mobile img {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+}
+
+.modal-project-image {
+  margin-top: 16px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-neon);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal-project-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.modal-project-image-mobile {
+  max-width: 280px;
+  margin: 16px auto 0 auto;
+}
+
 .project-header {
   display: flex;
   flex-direction: column;

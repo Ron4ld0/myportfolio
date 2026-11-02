@@ -422,13 +422,16 @@
       <!-- Projects Cards Grid -->
       <div class="projects-grid">
         
-        <!-- Project 1: VoiceMatch AI -->
+        <!-- Project 1: VoiceMatch.Ai -->
         <div class="project-card featured-card" data-project="voicematch" data-category="ai backend">
+          <div class="project-thumb">
+            <img src="imgs/voicematch.jpg" alt="Premiação de 1º Lugar do projeto VoiceMatch.Ai no Hackathon Match Tech" loading="lazy" />
+          </div>
           <div class="project-header">
             <div class="project-badge-bar">
               <span class="award-tag"><i class="fa-solid fa-trophy"></i> 1º LUGAR — HACKATHON MATCH TECH</span>
             </div>
-            <h3 class="project-title">VoiceMatch AI</h3>
+            <h3 class="project-title">VoiceMatch.Ai</h3>
             <p class="project-desc">
               Plataforma de recrutamento com Inteligência Artificial que conduz entrevistas por voz, analisa respostas e gera avaliações personalizadas para candidatos e recrutadores.
             </p>
@@ -457,6 +460,9 @@
 
         <!-- Project 2: Economiza.Ai -->
         <div class="project-card featured-card" data-project="economiza" data-category="ai">
+          <div class="project-thumb project-thumb-mobile">
+            <img src="imgs/economiza-ai.jpg" alt="Interface mobile do aplicativo Economiza.Ai comparando preços de supermercados em Alagoas" loading="lazy" />
+          </div>
           <div class="project-header">
             <div class="project-badge-bar">
               <span class="tag-badge green">FULL STACK • MOBILE • IA</span>
@@ -487,7 +493,80 @@
           </div>
         </div>
 
-        <!-- Project 3: Sistema de Gestão de Clínica -->
+        <!-- Project 3: Mermaid Class Graph Explorer -->
+        <div class="project-card featured-card" data-project="mermaid-explorer" data-category="backend">
+          <div class="project-thumb">
+            <img src="imgs/mermaid-explorer.jpg" alt="Interface do Mermaid Class Graph Explorer com visualização em grafo circular de classes e relacionamentos" loading="lazy" />
+          </div>
+          <div class="project-header">
+            <div class="project-badge-bar">
+              <span class="tag-badge green"><i class="fa-solid fa-code-branch"></i> 100% OPEN-SOURCE • ARQUITETURA</span>
+            </div>
+            <h3 class="project-title">Mermaid Class Graph Explorer</h3>
+            <p class="project-desc">
+              Ferramenta open-source que transforma diagramas de classes Mermaid em uma experiência interativa de exploração de grafos, facilitando a navegação pela arquitetura e relações entre entidades.
+            </p>
+          </div>
+          <div class="project-techs">
+            <span class="tag-badge green">React 19</span>
+            <span class="tag-badge green">TypeScript</span>
+            <span class="tag-badge">Vite</span>
+            <span class="tag-badge green">Cytoscape.js</span>
+            <span class="tag-badge">Mermaid</span>
+            <span class="tag-badge">Vitest</span>
+          </div>
+          <div class="project-highlight">
+            <i class="fa-solid fa-diagram-project"></i>
+            <span><strong>Destaque:</strong> 5 layouts interativos, análise de Degree Centrality, semântica visual e editor em tempo real.</span>
+          </div>
+          <div class="project-footer">
+            <div class="project-footer-left">
+              <span class="feature-tag">OPEN SOURCE & FRONTEND</span>
+              <div class="project-actions"></div>
+            </div>
+            <button class="view-details-btn" data-project="mermaid-explorer">
+              Ver Detalhes <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 4: Sites e Landing Pages (Freelance) -->
+        <div class="project-card" data-project="sites" data-category="backend">
+          <div class="project-thumb">
+            <img src="imgs/rl-consultoria.jpg" alt="Página institucional da R&L Consultoria Empresarial" loading="lazy" />
+          </div>
+          <div class="project-header">
+            <div class="project-badge-bar">
+              <span class="tag-badge">FREELANCE • WEB</span>
+            </div>
+            <h3 class="project-title">Sites e Landing Pages</h3>
+            <p class="project-desc">
+              Páginas institucionais de alta performance e conversão desenvolvidas para clientes como a <a href="https://www.rlconsultoriaempresarial.com.br/" target="_blank" rel="noopener noreferrer" style="color: var(--color-neon-bright); text-decoration: underline; font-weight: 600;">R&L Consultoria Empresarial</a> e setor imobiliário, com captação automática de leads.
+            </p>
+          </div>
+          <div class="project-techs">
+            <span class="tag-badge">HTML/CSS/JS</span>
+            <span class="tag-badge green">React / TS</span>
+            <span class="tag-badge">Google Apps Script</span>
+            <span class="tag-badge">Google Sheets</span>
+            <span class="tag-badge green">Vercel</span>
+          </div>
+          <div class="project-highlight">
+            <i class="fa-solid fa-arrow-trend-up"></i>
+            <span><strong>Resultado:</strong> Backend serverless em Apps Script canalizando leads em tempo real para Google Sheets com deploy ágil na Vercel.</span>
+          </div>
+          <div class="project-footer">
+            <div class="project-footer-left">
+              <span class="feature-tag">FULL STACK & WEB</span>
+              <div class="project-actions"></div>
+            </div>
+            <button class="view-details-btn" data-project="sites">
+              Ver Detalhes <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 5: Sistema de Gestão de Clínica -->
         <div class="project-card" data-project="clinica" data-category="backend">
           <div class="project-header">
             <div class="project-badge-bar">
@@ -520,7 +599,7 @@
           </div>
         </div>
 
-        <!-- Project 4: Automação & Engenharia de Dados -->
+        <!-- Project 6: Automação & Engenharia de Dados -->
         <div class="project-card" data-project="zuq" data-category="automations">
           <div class="project-header">
             <div class="project-badge-bar">
@@ -552,7 +631,7 @@
           </div>
         </div>
 
-        <!-- Project 5: Automações n8n -->
+        <!-- Project 7: Automações n8n -->
         <div class="project-card" data-project="n8n" data-category="automations integrations">
           <div class="project-header">
             <div class="project-badge-bar">
@@ -580,39 +659,6 @@
               <div class="project-actions"></div>
             </div>
             <button class="view-details-btn" data-project="n8n">
-              Ver Detalhes <i class="fa-solid fa-chevron-right"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Project 6: Sites e Landing Pages (Freelance) -->
-        <div class="project-card" data-project="sites" data-category="backend">
-          <div class="project-header">
-            <div class="project-badge-bar">
-              <span class="tag-badge">FREELANCE • WEB</span>
-            </div>
-            <h3 class="project-title">Sites e Landing Pages</h3>
-            <p class="project-desc">
-              Páginas institucionais de alta performance e conversão desenvolvidas para clientes como a <a href="https://www.rlconsultoriaempresarial.com.br/" target="_blank" rel="noopener noreferrer" style="color: var(--color-neon-bright); text-decoration: underline; font-weight: 600;">R&L Consultoria Empresarial</a> e setor imobiliário, com captação automática de leads.
-            </p>
-          </div>
-          <div class="project-techs">
-            <span class="tag-badge">HTML/CSS/JS</span>
-            <span class="tag-badge green">React / TS</span>
-            <span class="tag-badge">Google Apps Script</span>
-            <span class="tag-badge">Google Sheets</span>
-            <span class="tag-badge green">Vercel</span>
-          </div>
-          <div class="project-highlight">
-            <i class="fa-solid fa-arrow-trend-up"></i>
-            <span><strong>Resultado:</strong> Backend serverless em Apps Script canalizando leads em tempo real para Google Sheets com deploy ágil na Vercel.</span>
-          </div>
-          <div class="project-footer">
-            <div class="project-footer-left">
-              <span class="feature-tag">FULL STACK & WEB</span>
-              <div class="project-actions"></div>
-            </div>
-            <button class="view-details-btn" data-project="sites">
               Ver Detalhes <i class="fa-solid fa-chevron-right"></i>
             </button>
           </div>
@@ -722,7 +768,7 @@
         <div class="destaque-card">
           <i class="fa-solid fa-trophy"></i>
           <h3>1º Lugar — Hackathon Match Tech</h3>
-          <p>VoiceMatch AI</p>
+          <p>VoiceMatch.Ai</p>
         </div>
         <div class="destaque-card">
           <i class="fa-solid fa-star"></i>

@@ -141,6 +141,10 @@ const PROJECT_LINKS = {
     github: '',
     demo: ''
   },
+  'mermaid-explorer': {
+    github: 'https://github.com/Ron4ld0/mermaidexplorer',
+    demo: ''
+  },
   sites: {
     github: '',
     demo: 'https://www.rlconsultoriaempresarial.com.br/'
@@ -186,9 +190,11 @@ function initProjectActionButtons() {
 
 const PROJECTS_DATA = {
   voicematch: {
-    title: "VoiceMatch AI",
+    title: "VoiceMatch.Ai",
     subtitle: "Plataforma de recrutamento por voz com Inteligência Artificial",
     award: "1º LUGAR — HACKATHON MATCH TECH",
+    image: "imgs/voicematch.jpg",
+    imageAlt: "Premiação de 1º Lugar do projeto VoiceMatch.Ai no Hackathon Match Tech",
     newsUrl: "https://www.jornaldealagoas.com.br/ciencia/2026/07/27/1047-hackathon-em-alagoas-desenvolve-solucoes-com-ia-para-conectar-talentos-ao-mercado",
     newsTitle: "Matéria no Jornal de Alagoas",
     techs: ["React", "TypeScript", "Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Docker", "Pytest", "JWT", "Groq LLMs"],
@@ -226,6 +232,9 @@ const PROJECTS_DATA = {
     title: "Economiza.Ai",
     subtitle: "Comparador de preços de supermercados com IA e geolocalização",
     award: "FULL STACK • MOBILE • IA",
+    image: "imgs/economiza-ai.jpg",
+    imageAlt: "Interface mobile do aplicativo Economiza.Ai comparando preços de supermercados em Alagoas",
+    imageMobile: true,
     techs: ["React Native", "Expo", "TypeScript", "Python", "FastAPI", "PostgreSQL", "PostGIS", "Gemini API", "JWT", "Google SSO"],
     description: `
       <div style="margin-bottom:16px;">
@@ -315,10 +324,36 @@ const PROJECTS_DATA = {
       </div>
     `
   },
+  'mermaid-explorer': {
+    title: "Mermaid Class Graph Explorer",
+    subtitle: "Ferramenta open-source para exploração interativa de diagramas de classes Mermaid em grafos",
+    award: "100% OPEN-SOURCE • DEV TOOL",
+    image: "imgs/mermaid-explorer.jpg",
+    imageAlt: "Interface do Mermaid Class Graph Explorer exibindo um grafo interativo de classes e relacionamentos",
+    techs: ["React 19", "TypeScript", "Vite", "Cytoscape.js", "Mermaid", "Lucide React", "Vitest"],
+    description: `
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">A Proposta:</strong>
+        <p>Mais do que desenvolver um utilitário, a proposta foi transformar uma dificuldade real do desenvolvimento de software em uma solução reutilizável pela comunidade: converter diagramas estáticos Mermaid em uma experiência interativa de exploração de grafos para navegar pela arquitetura e compreender melhor as relações entre classes.</p>
+      </div>
+      <div style="margin-bottom:16px;">
+        <strong style="color:var(--text-white);">Principais Funcionalidades:</strong>
+        <ul style="padding-left:20px; list-style:disc;">
+          <li><strong>5 layouts interativos:</strong> Force-Directed (fCoSE), Hierárquico, Radial, Circular e Grade, para explorar diferentes perspectivas da arquitetura;</li>
+          <li><strong>Análise de centralidade:</strong> dimensionamento dinâmico dos nós com base no <em>Degree Centrality</em>, destacando classes com maior número de conexões;</li>
+          <li><strong>Semântica visual:</strong> diferenciação clara entre Classes, Interfaces, Classes Abstratas, Enums, Services e Entities;</li>
+          <li><strong>Inspeção detalhada:</strong> exploração de atributos, métodos e modificadores, além de isolamento das conexões de uma classe específica;</li>
+          <li><strong>Editor em tempo real:</strong> importação de arquivos <code>.mmd</code> ou <code>.txt</code>, validação de sintaxe e exploração do grafo em uma interface com suporte a modo escuro.</li>
+        </ul>
+      </div>
+    `
+  },
   sites: {
     title: "Sites e Landing Pages (Freelance)",
     subtitle: "Páginas institucionais de alta conversão para consultoria e setor imobiliário",
     award: "FREELANCE • WEB & SERVERLESS",
+    image: "imgs/rl-consultoria.jpg",
+    imageAlt: "Página institucional da R&L Consultoria Empresarial",
     techs: ["HTML5", "CSS3", "JavaScript", "React", "TypeScript", "Google Apps Script", "Google Sheets", "Vercel"],
     description: `
       <div style="margin-bottom:16px;">
@@ -390,6 +425,16 @@ function initProjectModals() {
           }
         }
 
+        let modalImageHtml = '';
+        if (data.image) {
+          const mobileClass = data.imageMobile ? ' modal-project-image-mobile' : '';
+          modalImageHtml = `
+            <div class="modal-project-image${mobileClass}">
+              <img src="${data.image}" alt="${data.imageAlt || data.title}" loading="lazy" />
+            </div>
+          `;
+        }
+
         modalBody.innerHTML = `
           <div style="display:flex; flex-direction:column; gap:12px;">
             <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
@@ -400,6 +445,8 @@ function initProjectModals() {
             ${newsBadgeHtml}
             ${modalActionsHtml}
           </div>
+
+          ${modalImageHtml}
 
           <hr style="border:none; border-top:1px solid var(--border-subtle); margin:16px 0;" />
 
